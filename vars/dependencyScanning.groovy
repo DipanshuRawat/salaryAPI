@@ -1,3 +1,3 @@
 def call() {
-    sh 'mvn org.owasp:dependency-check-maven:check'
+    sh ' mvn org.owasp:dependency-check-maven:check -Dformat=HTML -DoutputDirectory=target'
 }
