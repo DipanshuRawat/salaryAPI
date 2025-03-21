@@ -74,11 +74,11 @@ pipeline {
         }
 
         success {
-            postSuccess( EMAIL_RECIPIENTS, env.JOB_NAME, env.BUILD_NUMBER, env.BUILD_URL)
+            postSuccess(EMAIL_RECIPIENTS, env.JOB_NAME, env.BUILD_NUMBER, env.BUILD_URL)
         }
 
         failure {
-            postFailure( EMAIL_RECIPIENTS, env.JOB_NAME, env.BUILD_NUMBER, env.BUILD_URL)
+            postFailure(EMAIL_RECIPIENTS, env.JOB_NAME, env.BUILD_NUMBER, env.BUILD_URL)
         }
     }
 }
