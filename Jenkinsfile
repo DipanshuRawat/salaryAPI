@@ -27,7 +27,7 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                clone(branch_name, repo_url, 'cred')
+                clone(branch_name, repo_url, 'Cred')
             }
         }
 
