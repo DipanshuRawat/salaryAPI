@@ -8,15 +8,11 @@ pipeline {
     }
 
     environment {
-        branch_name = 'main'
-        repo_url = 'https://github.com/Snaatak-Skyops/salary-api.git'
+        BRANCH_NAME = 'main'
+        REPO_URL = 'https://github.com/Snaatak-Skyops/salary-api.git'
         EMAIL_RECIPIENTS = "princerawat2108@gmail.com"
         ZAP_REPORT = 'zap_report.html'
-        Url_ZAP_Attack = 'http://3.80.43.200:8080/actuator/health'
-        SONARQUBE_URL = 'http://3.80.43.200:9000/'
-        // SONAR_PROJECT_KEY = 'salary-api'
-        // projectKey_name = 'JAVA-Bug'
-        // SONAR_CREDENTIALS_ID = 'sonar_token' // Using the correct credential ID
+        URL_ZAP_ATTACK = 'http://3.80.43.200:8080/actuator/health'
     }
 
     stages {
@@ -28,7 +24,7 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                clone(branch_name, repo_url, 'Cred')
+                clone(BRANCH_NAME, REPO_URL, 'Cred')
             }
         }
 
@@ -50,15 +46,21 @@ pipeline {
             }
         }
 
-        stage('Bug Analysis') {
+        stage('Static Code Analysis (SpotBugs)') {
             steps {
-                bugAnalysis('Staticcode', 'sonar_token') // Passing correct credential ID
+                sh 'mvn spotbugs:check > spotbugs-check-output.txt' 
+            }
+        }
+
+        stage('Publish SpotBugs Report') {
+            steps {
+                publishSpotBugsReport('spotbugs-check-output.txt')
             }
         }
 
         stage('DAST') {
             steps {
-                dast(Url_ZAP_Attack, ZAP_REPORT)
+                dast(URL_ZAP_ATTACK, ZAP_REPORT)
             }
         }
 
