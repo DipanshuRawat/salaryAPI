@@ -1,3 +1,3 @@
-def call(String projectKey, String credentialsId) {
+def call() {
     sh 'mvn spotbugs:check > spotbugs-check-output.txt'
 }
