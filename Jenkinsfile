@@ -16,6 +16,7 @@ pipeline {
         SONARQUBE_URL = 'http://18.215.143.221:9000/'
         SONAR_PROJECT_KEY = 'salary-api'
         projectKey_name = 'JAVA-Bug'
+        SONAR_CREDENTIALS_ID = 'sonar_token' // Using the correct credential ID
     }
 
     stages {
@@ -51,7 +52,7 @@ pipeline {
 
         stage('Bug Analysis') {
             steps {
-                bugAnalysis(projectKey_name, 'sonar_token')
+                bugAnalysis(projectKey_name, SONAR_CREDENTIALS_ID) // Passing correct credential ID
             }
         }
 
