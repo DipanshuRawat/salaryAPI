@@ -1,7 +1,7 @@
 def call() {
     script {
         def status = sh(script: '''
-            mvn clean test surefire-report:report-only site -DgenerateReports=false 
+            mvn clean test surefire-report:report-only site -DgenerateReports=false | tee unit-test-report.txt
             echo "Unit tests completed."
         ''', returnStatus: true)
 
