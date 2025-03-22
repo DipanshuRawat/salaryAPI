@@ -14,9 +14,9 @@ pipeline {
         ZAP_REPORT = 'zap_report.html'
         Url_ZAP_Attack = 'http://3.80.43.200:8080/actuator/health'
         SONARQUBE_URL = 'http://3.80.43.200:9000/'
-        SONAR_PROJECT_KEY = 'salary-api'
-        projectKey_name = 'JAVA-Bug'
-        SONAR_CREDENTIALS_ID = 'sonar_token' // Using the correct credential ID
+        // SONAR_PROJECT_KEY = 'salary-api'
+        // projectKey_name = 'JAVA-Bug'
+        // SONAR_CREDENTIALS_ID = 'sonar_token' // Using the correct credential ID
     }
 
     stages {
@@ -52,7 +52,7 @@ pipeline {
 
         stage('Bug Analysis') {
             steps {
-                bugAnalysis(projectKey_name, SONAR_CREDENTIALS_ID) // Passing correct credential ID
+                bugAnalysis('Staticcode', 'sonar_token') // Passing correct credential ID
             }
         }
 
