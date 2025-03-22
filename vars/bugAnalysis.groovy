@@ -5,7 +5,7 @@ def call(String projectKeyName, String sonarCredentialsId) {
             mvn clean verify sonar:sonar \
               -Dsonar.projectKey=${projectKeyName} \
               -Dsonar.host.url=http://3.80.43.200:9000 \
-              -Dsonar.login="$SONAR_TOKEN"
+              -Dsonar.login="${SONAR_TOKEN}"
             """
         }
     }
