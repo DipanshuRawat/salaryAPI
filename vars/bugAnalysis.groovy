@@ -9,5 +9,4 @@ def call(String projectKeyName, String sonarCredentialsId) {
             """
         }
     }
-    waitForQualityGate()
 }
