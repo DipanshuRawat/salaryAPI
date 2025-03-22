@@ -1,6 +1,6 @@
 def call() {
     // Increase timeout to 1 hour
     timeout(time: 1, unit: 'HOURS') {
-        sh 'mvn org.owasp:dependency-check-maven:check -Dformat=HTML -DoutputDirectory=target || true' 
+         sh './dependency-check/bin/dependency-check.sh --project "." --scan . --format HTML --out security-reports'
     }
 }
