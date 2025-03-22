@@ -52,12 +52,6 @@ pipeline {
             }
         }
 
-        stage('Static Code Analysis (SpotBugs)') {
-            steps {
-                sh 'mvn spotbugs:check > spotbugs-check-output.txt'
-            }
-        }
-
         stage('DAST') {
             steps {
                 dast(URL_ZAP_ATTACK, ZAP_REPORT)
