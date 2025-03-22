@@ -10,7 +10,7 @@ pipeline {
     environment {
         BRANCH_NAME = 'main'
         REPO_URL = 'https://github.com/Snaatak-Skyops/salary-api.git'
-        EMAIL_RECIPIENTS = "princerawat2108@gmail.com"
+        EMAIL_RECIPIENTS = "shubhanshisuryal@gmail.com"
         ZAP_REPORT = 'zap_report.html'
         URL_ZAP_ATTACK = 'http://3.80.43.200:8080/actuator/health'
     }
