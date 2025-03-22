@@ -52,9 +52,9 @@ pipeline {
             }
         }
 
-        stage('Publish SpotBugs Report') {
+        stage('Static Code Analysis (SpotBugs)') {
             steps {
-                publishSpotBugsReport('spotbugs-check-output.txt')
+                sh 'mvn spotbugs:check > spotbugs-check-output.txt'
             }
         }
 
