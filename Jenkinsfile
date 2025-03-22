@@ -12,8 +12,8 @@ pipeline {
         repo_url = 'https://github.com/Snaatak-Skyops/salary-api.git'
         EMAIL_RECIPIENTS = "princerawat2108@gmail.com"
         ZAP_REPORT = 'zap_report.html'
-        Url_ZAP_Attack = 'http://18.215.143.221:8080/actuator/health'
-        SONARQUBE_URL = 'http://18.215.143.221:9000/'
+        Url_ZAP_Attack = 'http://3.80.43.200:8080/actuator/health'
+        SONARQUBE_URL = 'http://3.80.43.200:9000/'
         SONAR_PROJECT_KEY = 'salary-api'
         projectKey_name = 'JAVA-Bug'
         SONAR_CREDENTIALS_ID = 'sonar_token' // Using the correct credential ID
